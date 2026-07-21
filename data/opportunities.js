@@ -1,0 +1,43 @@
+export const opportunities = [
+  {
+    id: 1,
+    title: "Frontend Developer",
+    organization: "Kabul Tech",
+    category: "Job",
+    location: "Kabul",
+    type: "Remote",
+    deadline: "2026-07-30",
+    description: "A frontend development opportunity.",
+    requirements: ["React", "Next.js", "JavaScript"],
+    applyLink: "https://example.com",
+    tags: ["React", "Next.js", "JavaScript"],
+  },
+
+  {
+    id: 2,
+    title: "Women in Tech Scholarship",
+    organization: "Global Learning Foundation",
+    category: "Scholarship",
+    location: "Online",
+    type: "Remote",
+    deadline: "2026-08-10",
+    description: "A scholarship opportunity for women in technology.",
+    requirements: ["English", "Motivation letter"],
+    applyLink: "https://example.com",
+    tags: ["Scholarship", "Women", "Technology"],
+  },
+
+  {
+    id: 3,
+    title: "React Internship",
+    organization: "Afghan Developers",
+    category: "Internship",
+    location: "Remote",
+    type: "Remote",
+    deadline: "2026-08-20",
+    description: "An internship for beginner React developers.",
+    requirements: ["Basic React", "HTML", "CSS"],
+    applyLink: "https://example.com",
+    tags: ["React", "Internship"],
+  },
+];
