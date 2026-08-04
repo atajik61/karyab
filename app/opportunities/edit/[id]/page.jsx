@@ -1,22 +1,42 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { useState, useEffect } from "react";
+import { getOpportunities, updateOpportunity } from "@/mock/OpportunitiesApi";
 import OpportunityForm from "@/components/OpportunityForm";
-import { addOpportunity } from "@/mock/OpportunitiesApi";
 
-export default function AddOpportunityPage() {
+export default function EditPage() {
+  const router = useRouter();
   const [title, setTitle] = useState("");
   const [organization, setOrganization] = useState("");
-  const [category, setCategory] = useState("");
   const [location, setLocation] = useState("");
+  const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const [deadline, setDeadline] = useState("");
   const [description, setDescription] = useState("");
   const [requirements, setRequirements] = useState("");
   const [tags, setTags] = useState("");
   const [apply, setApply] = useState("");
+  const params = useParams();
+  const id = params.id;
 
-  const router = useRouter();
+  useEffect(() => {
+    const saved = getOpportunities();
+
+    const found = saved.find((item) => item.id === Number(id));
+
+    if (found) {
+      setTitle(found.title);
+      setOrganization(found.organization);
+      setLocation(found.location);
+      setCategory(found.category);
+      setType(found.type);
+      setDeadline(found.deadline);
+      setDescription(found.description || "");
+      setRequirements((found.requirements || []).join(", "));
+      setTags((found.tags || []).join(", "));
+      setApply(found.apply || "");
+    }
+  }, [id]);
 
   {
     /*handle submit */
@@ -24,37 +44,40 @@ export default function AddOpportunityPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newOpportunity = {
-      id: Date.now(),
+    const updatedOpportunity = {
+      id: Number(id),
       title,
       organization,
       location,
       category,
       type,
       deadline,
+
       description,
+
       requirements: requirements
         .split(",")
         .map((item) => item.trim())
         .filter(Boolean),
+
       tags: tags
         .split(",")
         .map((item) => item.trim())
         .filter(Boolean),
+
       apply,
     };
+    updateOpportunity(updatedOpportunity);
 
-    addOpportunity(newOpportunity);
-
-    router.push("/opportunities?added=true");
+    router.push("/opportunities");
   };
   return (
     <main className="px-6 py-16">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl font-bold">Add Opportunity</h1>
+        <h1 className="text-3xl font-bold">Edit Opportunity</h1>
 
         <p className="mt-2 text-gray-600">
-          Add a new job, internship, scholarship, or training opportunity.
+          Edit a job, internship, scholarship, or training opportunity.
         </p>
         <OpportunityForm
           title={title}
@@ -78,7 +101,7 @@ export default function AddOpportunityPage() {
           apply={apply}
           setApply={setApply}
           onSubmit={handleSubmit}
-          buttonText="Add Opportunity"
+          buttonText="Save Changes"
         />
       </div>
     </main>

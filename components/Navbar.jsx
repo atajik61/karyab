@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,7 +20,7 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav className="w-full px-6 py-4 bg-white shadow-md">
+      <nav className="w-full px-6 py-4 bg-white shadow-md dark:bg-gray-900">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -28,6 +29,7 @@ export default function Navbar() {
           >
             KaarYab Afghanistan
           </Link>
+
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-6">
             {links.map((link) => {
@@ -40,7 +42,7 @@ export default function Navbar() {
                   className={
                     isActive
                       ? "text-blue-600 transition-colors font-semibold "
-                      : "text-gray-700 transition-colors hover:text-blue-600"
+                      : "text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-300"
                   }
                 >
                   {link.label}
@@ -48,10 +50,16 @@ export default function Navbar() {
               );
             })}
           </div>
-
+          <ThemeToggle />
           {/* Mobile Button */}
           <button
-            className="text-2xl md:hidden text-gray-700 transition-colors hover:text-blue-600"
+            type="button"
+            aria-label={
+              menuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            className="text-2xl text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-200 md:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             {menuOpen ? "✕" : "☰"}
@@ -60,7 +68,10 @@ export default function Navbar() {
         <div>
           {/* Mobile Menu */}
           {menuOpen && (
-            <div className="mt-4 flex flex-col gap-4 rounded-lg bg-gray-50 p-4 shadow-md md:hidden">
+            <div
+              id="mobile-menu"
+              className="mt-4 flex flex-col gap-4 rounded-lg bg-gray-50 p-4 shadow-md dark:bg-gray-800 md:hidden"
+            >
               {links.map((link) => {
                 const isActive = pathName === link.href;
 
@@ -69,7 +80,11 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className={isActive ? "text-blue-600" : "text-gray-700"}
+                    className={
+                      isActive
+                        ? "font-semibold text-blue-600"
+                        : "text-gray-700 hover:text-blue-600 dark:text-gray-200"
+                    }
                   >
                     {link.label}
                   </Link>
