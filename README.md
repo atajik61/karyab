@@ -6,7 +6,7 @@ The platform provides a simple and accessible interface where users can search, 
 
 ## 🚀 Live Demo
 
-[View KaarYab Afghanistan](https://your-vercel-url.vercel.app)
+[View KaarYab Afghanistan](https://karyab-bxfer4z2n-cti3.vercel.app/)
 
 > Replace the link above with your actual Vercel deployment URL.
 
@@ -196,6 +196,26 @@ Possible future improvements include:
 - Admin dashboard
 - AI-powered opportunity recommendations
 
+## Screenshots
+
+![Screenshot 1](./public/screenshots/1.png)
+
+![Screenshot 2](./public/screenshots/2.png)
+
+![Screenshot 3](./public/screenshots/3.png)
+
+![Screenshot 4](./public/screenshots/4.png)
+
+![Screenshot 5](./public/screenshots/5.png)
+
+![Screenshot 6](./public/screenshots/6.png)
+
+![Screenshot 7](./public/screenshots/7.png)
+
+![Screenshot 8](./public/screenshots/8.png)
+
+![Screenshot 9](./public/screenshots/9.png)
+
 ## 👩‍💻 Author
 
 Developed as a web development project focused on creating a simple, accessible, and useful opportunity discovery platform for Afghanistan.
@@ -203,3 +223,7 @@ Developed as a web development project focused on creating a simple, accessible,
 ## 📄 License
 
 This project is developed for educational and portfolio purposes.
+
+```
+
+```
