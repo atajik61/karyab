@@ -1,36 +1,205 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# KaarYab Afghanistan 🇦🇫
 
-## Getting Started
+KaarYab Afghanistan is an opportunity finder platform designed to help users discover jobs, internships, scholarships, training programs, courses, and other professional and educational opportunities.
 
-First, run the development server:
+The platform provides a simple and accessible interface where users can search, filter, view, save, add, edit, and delete opportunities.
+
+## 🚀 Live Demo
+
+[View KaarYab Afghanistan](https://your-vercel-url.vercel.app)
+
+> Replace the link above with your actual Vercel deployment URL.
+
+## 📌 Features
+
+- Browse available opportunities
+- Search opportunities by title
+- Filter opportunities by:
+
+  - Category
+  - Location
+  - Type
+
+- View detailed opportunity information
+- Save opportunities for later
+- Add new opportunities
+- Edit existing opportunities
+- Delete opportunities with confirmation
+- Dashboard with opportunity statistics
+- Opportunities by category chart
+- Recently added opportunities
+- Form validation using Zod
+- Empty states for unavailable results
+- Responsive design for different screen sizes
+- Light and Dark Mode
+- Accessible form controls and interactive elements
+
+## 🛠️ Technologies
+
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Recharts
+- Zod
+- React Hooks
+- LocalStorage
+- Git & GitHub
+- Vercel
+
+## 📂 Project Structure
+
+```text
+karyab/
+├── app/
+│   ├── about/
+│   ├── add-opportunity/
+│   ├── contact/
+│   ├── dashboard/
+│   ├── opportunities/
+│   ├── saved/
+│   ├── globals.css
+│   └── layout.jsx
+│
+├── components/
+│   ├── CategoryChart.jsx
+│   ├── ConfirmModal.jsx
+│   ├── EmptyState.jsx
+│   ├── OpportunitiesSearch.jsx
+│   ├── OpportunityCard.jsx
+│   ├── OpportunityForm.jsx
+│   ├── ThemeToggle.jsx
+│   └── ...
+│
+├── data/
+│   └── opportunities.js
+│
+├── mock/
+│   └── OpportunitiesApi.js
+│
+├── validation/
+│   └── opportunitySchema.js
+│
+├── public/
+│
+├── package.json
+└── README.md
+```
+
+## ⚙️ Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd karyab
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and visit:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏗️ Production Build
 
-## Learn More
+To create a production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To start the production server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm start
+```
 
-## Deploy on Vercel
+## 💾 Data Storage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project currently uses **LocalStorage** for user-created and saved opportunities.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The application stores:
+
+```text
+opportunities
+savedOpportunities
+```
+
+in the browser's LocalStorage.
+
+This means the current version does not require a separate backend database.
+
+## ♿ Accessibility
+
+Accessibility was considered throughout the interface by using:
+
+- Semantic HTML elements
+- Proper form labels
+- Accessible buttons and inputs
+- Keyboard-friendly interactive elements
+- Visible focus states
+- Sufficient text contrast
+- `aria-pressed` for the Save button
+- Responsive layouts
+
+## 🌙 Dark Mode
+
+KaarYab supports both:
+
+- Light Mode
+- Dark Mode
+
+Users can switch between themes using the Theme Toggle in the navigation bar.
+
+The selected theme is stored in LocalStorage so it can persist across page refreshes.
+
+## 📊 Dashboard
+
+The Dashboard provides an overview of:
+
+- Total opportunities
+- Saved opportunities
+- Job opportunities
+- Opportunities grouped by category
+- Recently added opportunities
+
+## 🔮 Future Improvements
+
+Possible future improvements include:
+
+- Backend API integration
+- Database integration
+- User authentication
+- Individual user accounts
+- Real-time opportunity updates
+- Email notifications
+- Advanced search
+- Pagination
+- Admin dashboard
+- AI-powered opportunity recommendations
+
+## 👩‍💻 Author
+
+Developed as a web development project focused on creating a simple, accessible, and useful opportunity discovery platform for Afghanistan.
+
+## 📄 License
+
+This project is developed for educational and portfolio purposes.

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -48,7 +49,6 @@ export default function OpportunitiesContent() {
       setAllOpportunities(saved);
     } else {
       localStorage.setItem("opportunities", JSON.stringify(opportunities));
-
       setAllOpportunities(opportunities);
     }
   }, []);
@@ -80,11 +80,24 @@ export default function OpportunitiesContent() {
       {/* Search and Filters */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h1 className="text-3xl font-bold">Search Opportunities</h1>
+          {/* Page Header */}
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h1 className="text-3xl font-bold">Search Opportunities</h1>
 
-          <p className="mt-3 text-gray-600 dark:text-gray-300">
-            Search and filter opportunities based on your needs.
-          </p>
+              <p className="mt-3 text-gray-600 dark:text-gray-300">
+                Search and filter opportunities based on your needs.
+              </p>
+            </div>
+
+            {/* Add Opportunity Button */}
+            <Link
+              href="/add-opportunity"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              + Add Opportunity
+            </Link>
+          </div>
 
           <div className="mt-8">
             <OpportunitiesSearch
