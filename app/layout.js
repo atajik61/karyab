@@ -1,20 +1,23 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { SavedProvider } from "@/context/SavedContext";
 
 export const metadata = {
-  title: 'KaarYab',
-  description: 'KaarYab',
+  title: "KaarYab",
+  description: "KaarYab",
 };
 
-export default function RootLayout({children}){
-  return(
-      <html lang="en">
-        <body>
-          <Navbar/>
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        <SavedProvider>
+          <Navbar />
           {children}
-          <Footer/>
-        </body>
-      </html>
-  )
+          <Footer />
+        </SavedProvider>
+      </body>
+    </html>
+  );
 }

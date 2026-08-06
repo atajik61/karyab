@@ -1,3 +1,6 @@
+export const metadata = {
+  title: "About",
+};
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gray-50 px-6 py-16 text-gray-900 dark:bg-gray-900 dark:text-white">
